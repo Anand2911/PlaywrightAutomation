@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 const credentials = [
-    { login:'amarjasonawane',password:'Amarja@123'},
+    { login:'Anandpak',password:'7C5Y2K'},
     { login:'SAral1996',password:'SAral@7200'},
     { login:'misr82hn02',password:'misr82hn02'},
     { login:'sagayapraveen',password:'GGE092'}
