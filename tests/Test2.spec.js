@@ -36,7 +36,7 @@ test('Adactin title', async ({ page }) =>
   await page.locator('//input[@name="book_now"]').click();
   await page.waitForTimeout(3000);
 
-  await page.locator('//a[normalize-space()="Booked Itinerary"]').click;
+  await page.locator('//a[text()="Booked Itinerary"]').click;
 await page.locator('(//input[@type="checkbox"])[2]').click;
 await page.check('(//input[@type="checkbox"])[3]');
 await page.uncheck('(//input[@type="checkbox"])[3]');
