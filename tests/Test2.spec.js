@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { Console } = require('console');
 
 test('Adactin title', async ({ page }) => 
 {
@@ -18,9 +19,12 @@ test('Adactin title', async ({ page }) =>
   await page.locator('//select[@id="room_type"]').selectOption({label:'Standard'});
   await page.locator('//select[@id="room_nos"]').selectOption('2');
   await page.locator('//select[@id="adult_room"]').selectOption('2');
-  await page.locator('//input[@id="Submit"]').click;
-  await page.check('//input[@id="radiobutton_0"]');
-  await page.locator('//input[@id="continue"]').click;
+ let ap = await page.locator('//input[@name="Submit"]').click();
+ console.log(ap);
+  await page.waitForTimeout(3000);
+  await page.locator('//input[@id="radiobutton_0"]').check();
+  await page.locator('//input[@id="continue"]').click();
+  await page.waitForTimeout(3000);
   await page.locator('//input[@id="first_name"]').fill('Anand');
   await page.locator('//input[@id="last_name"]').fill('kumar');
   await page.locator('//textarea[@id="address"]').fill('Chennai');
@@ -29,7 +33,8 @@ test('Adactin title', async ({ page }) =>
   await page.locator('//select[@id="cc_exp_month"]').selectOption({index:1});
   await page.locator('//select[@id="cc_exp_year"]').selectOption('2023');
   await page.locator('//input[@id="cc_cvv"]').fill('123');
-  await page.locator('//input[@id="book_now"]').click;
+  await page.locator('//input[@name="book_now"]').click();
+  await page.waitForTimeout(3000);
 
   await page.locator('//a[normalize-space()="Booked Itinerary"]').click;
 await page.locator('(//input[@type="checkbox"])[2]').click;
